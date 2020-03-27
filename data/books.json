@@ -1,0 +1,72 @@
+[
+  {
+    "author": {
+      "first_name": "George R. R.",
+      "family_name": "Martin"
+    },
+    "title": "A Game of Thrones",
+    "summary": "First book in the series of A Song of Ice and Fire",
+    "isbn": "	0-553-10354-7",
+    "genre": ["High fantasy"]
+  },
+  {
+    "author": {
+      "first_name": "George R. R.",
+      "family_name": "Martin"
+    },
+    "title": "A Clash of Kings",
+    "summary": "Second book in the series of A Song of Ice and Fire",
+    "isbn": "0-00-224585-X",
+    "genre": ["High fantasy"]
+  },
+  {
+    "author": {
+      "first_name": "J. K.",
+      "family_name": "Rowling"
+    },
+    "title": "Harry Potter and the Philosopher's Stone",
+    "summary": "A story about the boy who lived and his first year in Hogwarts",
+    "isbn": "0-7475-3269-9",
+    "genre": ["Fantasy", "Young adult fiction"]
+  },
+  {
+    "author": {
+      "first_name": "J. K.",
+      "family_name": "Rowling"
+    },
+    "title": "Harry Potter and the Chamber of Secrets",
+    "summary": "The adventures and mishaps of the boy who lived continues as mysterious things happen in Hogwarts",
+    "isbn": "0-7475-3849-2",
+    "genre": ["Fantasy", "Young adult fiction"]
+  },
+  {
+    "author": {
+      "first_name": "J. K.",
+      "family_name": "Rowling"
+    },
+    "title": "Harry Potter and the Prisoner of Azkaban",
+    "summary": "A crazy wizard has escaped from the magical prison Azkaban!",
+    "isbn": "0-7475-4215-5",
+    "genre": ["Fantasy", "Young adult fiction"]
+  },
+  {
+    "author": {
+      "first_name": "Lewis",
+      "family_name": "Carroll"
+    },
+    "title": "Alice's Adventures in Wonderland",
+    "summary": "Something about a late rabbit and the queen of hearts",
+    "isbn": "0-4862-7543-4",
+    "genre": ["Fantasy", "Literary nonsense"]
+  },
+  {
+    "author": {
+      "first_name": "Lewis",
+      "family_name": "Carroll"
+    },
+    "title": "Through the Looking Glass",
+    "summary": "Alice again enters a fantastical world by climbing through a mirror into the world that she can see beyond it.",
+    "isbn": "1-7984-4083-0",
+    "genre": ["Fantasy", "Literary nonsense"]
+  }
+]
