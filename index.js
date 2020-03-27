@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+// Import the models individually
 const Author = require('./models/author');
 const Genre = require('./models/genre');
 const Book = require('./models/book');
@@ -20,18 +21,22 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 // API endpoints only, no views
 app.post('/addAuthor', function(req, res) {
+  // Adds an author to the database
   const author = new Author({
     first_name: req.body.first_name,
-    last_name: req.body.last_name
+    family_name: req.body.family_name
   });
 
   author.save(function (err, result) {
     if (err) throw err;
+
+    // Used toObject() to show how the virtuals can be returned
     res.send(result.toObject());
   });
 });
 
 app.post('/addGenre', function(req, res) {
+  // Adds a genre to the database
   const genre = new Genre({
     name: req.body.name
   });
@@ -44,20 +49,25 @@ app.post('/addGenre', function(req, res) {
 });
 
 app.post('/addBook', function(req, res) {
+  // Check ./data/authors.json for request body format expected
+  // Adds a book to the database
   const bookRequest = req.body;
-  
-  // find Author
+
+  // 1. Find the author
   Author.findOne(bookRequest.author, function (err, author) {
+    // save the _id of the author in a variable
     const authorid = author._id;
 
-    // then find genre
+    // 2. Find genres using the $in operator since the genre field is an array
     Genre.find({ name: { $in: bookRequest.genre }}, function(err, genres) {
+      // This returns all the genres found
+      // Array of documents
       console.log(genres);
 
-      // then create book
+      // 3.Finally, create book
       const book = new Book({
         title: bookRequest.title,
-        author: author._id,
+        author: authorid,
         summary: bookRequest.summary,
         isbn: bookRequest.isbn,
         genre: genres.map((g) => g._id) // Array.map() returns a new array
@@ -73,18 +83,21 @@ app.post('/addBook', function(req, res) {
 });
 
 app.get('/authors', function(req, res) {
+  // Retrieves all authors
   Author.find({}, function(err, authors) {
     res.send(authors);
   });
 });
 
 app.get('/genres', function(req, res) {
+  // Retrieves all genres
   Genre.find({}, function(err, genres) {
     res.send(genres);
   });
 });
 
 app.get('/books', function(req, res) {
+  // Retrieves all books and populates the reference to genre and author
   Book.find({})
     .populate('genre')
     .populate('author')
@@ -94,9 +107,11 @@ app.get('/books', function(req, res) {
 });
 
 app.get('/books/:authorid', function(req, res) {
-  // Assuming we pass the author id in the URL
+  // Retrieves all books of an author
+  // We expect the author id in the URL
   const authorId = req.params.authorid;
 
+  // Filter books by author id provided
   Book.find({ author: authorId })
     .populate('genre')
     .populate('author')
