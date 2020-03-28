@@ -44,7 +44,7 @@ All the API endpoints definition are here.
 2. Open up the [Postman](https://www.postman.com/) application to get started.
 
 ### POST endpoints
-1. Set up the POST request on [Postman](https://www.postman.com/).
+1. On [Postman](https://www.postman.com/), set up the request to a **POST** request on using the dropdown select beside the text box for the request URL. Type in the URL below and click on the "Headers" tab right below it to set the `Content-Type` header. _(Don't click send yet, we still have to set the request body!)_
   ```
   URL: http://localhost:9090/addAuthor
   Request Headers:
@@ -56,7 +56,7 @@ All the API endpoints definition are here.
 
 2. Open the corresponding `json` file under the [`data`](data) folder. (i.e. [`data/authors.json`](data/authors.json)). The data is an array of Objects for each file but the endpoints only accept **one** Object at a time.
 
-  In the Body tab of the POST request, copy paste one item from the `json` file.
+  Copy one item from the `json` file and paste it in the Body tab of the POST request.
   ```json
   {
     "first_name": "George R. R.",
@@ -70,16 +70,16 @@ All the API endpoints definition are here.
 
   ![alt text](screens/postman-post-result.png "Postman successful result for adding an author")
 
-4. Repeat this for all the objects in [`data/authors.json`](data/authors.json) and [`data/genres.json`](data/genres.json) to populate the two collections.
+4. Repeat steps 2 & 3 for all the objects in [`data/authors.json`](data/authors.json) and [`data/genres.json`](data/genres.json) to populate the two collections.
 
 5. Start inserting books from [`data/books.json`](data/books.json). Read the inline comments in [`index.js`](index.js) to understand the entire process of inserting a book with references to the **author** and **genres**.
 
 ### GET "All" endpoints
-1. Set up the GET request on [Postman](https://www.postman.com/).
+1. On [Postman](https://www.postman.com/), set up the request to a **GET** request on using the dropdown select beside the text box for the request URL.
   ```
   URL: http://localhost:9090/authors
   ```
-  There's no request body or parameters since we're retrieving all the values in the collection. Since there's no body, we don't need to set the request header too.
+  Unlike the **`POST`** request earlier, there's no request body or parameters for this since we're retrieving all the values in the collection. Since there's no body, we don't need to set the request header too.
 
 2. Click **Send** and the result should show all the documents in the collection.
 
@@ -88,11 +88,11 @@ All the API endpoints definition are here.
 3. Test out `http://localhost:9090/genres` and `http://localhost:9090/books` too!
 
 ### GET `/books/:authorid`
-1. Set up the GET request on [Postman](https://www.postman.com/).
+1. On [Postman](https://www.postman.com/), set up the request to a **GET** request on using the dropdown select beside the text box for the request URL.
   ```
   URL: http://localhost:9090/books/:authorid
   ```
-  The `:authorid` needs to be replaced with an actual `_id` value from the authors collection.
+  The **`:authorid`** needs to be replaced with an actual `_id` value from the authors collection.
 
   ![alt text](screens/postman-get-books-request.png "GET request with the _id value in the URL")
 
